@@ -1,6 +1,7 @@
 CREATE ONLINE_POST JOB load_Action_Manner_test FOR GRAPH c_graph{
 	DEFINE HEADER Action_Manner_header = "act","obj","rel","qa";
 	LOAD
+	    USER_DEFINED_HEADER="Action_Manner_header"
 		TO VERTEX object VALUES ($"obj", $"obj"),
 		TO VERTEX action VALUES ($"act", $"act"),
 		TO VERTEX ANS VALUES ($"qa", $"qa"),
@@ -8,7 +9,7 @@ CREATE ONLINE_POST JOB load_Action_Manner_test FOR GRAPH c_graph{
 		TO EDGE obj_to_answer VALUES ($obj,$qa),
 		TO EDGE act_to_answer VALUES ($act,$qa),
 
-		TO EDGE initiative VALUES ($obj,$qa),
+		TO EDGE passivity VALUES ($obj,$qa),
 
 		TO EDGE Action_Manner VALUES ($act,$obj)
 		;

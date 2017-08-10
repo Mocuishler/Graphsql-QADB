@@ -1,6 +1,7 @@
 CREATE ONLINE_POST JOB load_Argument_Attrib_test FOR GRAPH c_graph{
 	DEFINE HEADER Argument_Attrib_header = "obj1","obj2","rel","qa";
 	LOAD
+	    USER_DEFINED_HEADER="Argument_Attrib_header"
 		TO VERTEX object VALUES ($"obj1", $"obj1"),
 		TO VERTEX object VALUES ($"obj2", $"obj2"),
 		TO VERTEX ANS VALUES ($"qa", $"qa"),
