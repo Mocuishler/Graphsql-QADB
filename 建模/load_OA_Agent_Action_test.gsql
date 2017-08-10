@@ -1,17 +1,20 @@
+DROP JOB load_Agent_Action_test
 CREATE ONLINE_POST JOB load_Agent_Action_test FOR GRAPH c_graph{
 	DEFINE HEADER Agent_Action_header = "obj","act","rel","qa";
 	LOAD
-        USER_DEFINED_HEADER="Agent_Action_header"
+
 		TO VERTEX object VALUES ($"obj", $"obj"),
 		TO VERTEX action VALUES ($"act", $"act"),
 		TO VERTEX ANS VALUES ($"qa", $"qa"),
 
-		TO EDGE obj_to_answer VALUES ($obj,$qa),
-		TO EDGE act_to_answer VALUES ($act,$qa),
+		TO EDGE obj_to_answer VALUES ($"obj",$"qa"),
+		TO EDGE act_to_answer VALUES ($"act",$"qa"),
 
-		TO EDGE initiative VALUES ($obj,$qa),
+		TO EDGE initiative VALUES ($"obj",$"qa"),
 
-		TO EDGE Agent_Action VALUES ($obj,$act)
-		;
+		TO EDGE Agent_Action VALUES ($"obj",$"act")
+
+		USING QUOTE="double",USER_DEFINED_HEADER="Agent_Action_header";
+
 # RUN JOB load_Agent_Action_test USING FILENAME="XXX", SEPARATOR=" ", EOL="\n"
 }

@@ -1,19 +1,20 @@
+DROP JOB load_Action_Locative_test
 CREATE ONLINE_POST JOB load_Action_Locative_test FOR GRAPH c_graph{
 	DEFINE HEADER Action_Locative_header = "act","obj","rel","qa";
-	
-	LOAD
-		USER_DEFINED_HEADER="Action_Locative_header"
 
+	LOAD
 		TO VERTEX object VALUES ($"obj", $"obj"),
 		TO VERTEX action VALUES ($"act", $"act"),
 		TO VERTEX ANS VALUES ($"qa", $"qa"),
 
-		TO EDGE obj_to_answer VALUES ($obj,$qa),
-		TO EDGE act_to_answer VALUES ($act,$qa),
+		TO EDGE obj_to_answer VALUES ($"obj",$"qa"),
+		TO EDGE act_to_answer VALUES ($"act",$"qa"),
 
-		TO EDGE passivity VALUES ($obj,$qa),
+		TO EDGE passivity VALUES ($"obj",$"qa"),
 
-		TO EDGE Action_Locative VALUES ($act,$obj)
-		;
+		TO EDGE Action_Locative VALUES ($"act",$"obj"),
+
+		USING QUOTE="double",USER_DEFINED_HEADER="Action_Locative_header";
+
 # RUN JOB load_Action_Locative_test USING FILENAME="XXX", SEPARATOR=" ", EOL="\n"
 }

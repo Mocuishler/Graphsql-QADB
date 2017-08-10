@@ -1,18 +1,21 @@
+DROP JOB load_Argument_Attrib_test
 CREATE ONLINE_POST JOB load_Argument_Attrib_test FOR GRAPH c_graph{
 	DEFINE HEADER Argument_Attrib_header = "obj1","obj2","rel","qa";
 	LOAD
-	    USER_DEFINED_HEADER="Argument_Attrib_header"
+
 		TO VERTEX object VALUES ($"obj1", $"obj1"),
 		TO VERTEX object VALUES ($"obj2", $"obj2"),
 		TO VERTEX ANS VALUES ($"qa", $"qa"),
 
-		TO EDGE obj_to_answer VALUES ($obj2,$qa),
-		TO EDGE obj_to_answer VALUES ($obj1,$qa),
+		TO EDGE obj_to_answer VALUES ($"obj2",$"qa"),
+		TO EDGE obj_to_answer VALUES ($"obj1",$"qa"),
 		
-		TO EDGE first_obj VALUES ($obj1,$qa),
-		TO EDGE second_obj VALUES ($obj2,$qa),
+		TO EDGE first_obj VALUES ($"obj1",$"qa"),
+		TO EDGE second_obj VALUES ($"obj2",$"qa"),
 
-		TO EDGE Argument_Attrib VALUES ($obj1,$obj2)
-		;
+		TO EDGE Argument_Attrib VALUES ($"obj1",$"obj2")
+
+        USING QUOTE="double",USER_DEFINED_HEADER="Argument_Attrib_header";
+
 # RUN JOB load_Argument_Attrib_test USING FILENAME="XXX", SEPARATOR=" ", EOL="\n"
 }
