@@ -25,41 +25,43 @@ CREATE DIRECTED EDGE act_to_answer(FROM action, TO ANS) WITH REVERSE_EDGE = "ans
 
 ####语义关系:主动被动关系####
 
-CREATE DIRECTED EDGE initiative(FROM object, TO ANS) WITH REVERSE_EDGE = "re_ initiative"
+CREATE DIRECTED EDGE initiative(FROM object, TO ANS) WITH REVERSE_EDGE = "re_initiative"
 
-CREATE DIRECTED EDGE passivity(FROM object, TO ANS) WITH REVERSE_EDGE = "re_ passivity"
+CREATE DIRECTED EDGE passivity(FROM object, TO ANS) WITH REVERSE_EDGE = "re_passivity"
 
 ####语义关系:双action关系####
 
-CREATE DIRECTED EDGE first_act(FROM action, TO ANS) WITH REVERSE_EDGE = "re_ first_act"
+CREATE DIRECTED EDGE first_act(FROM action, TO ANS) WITH REVERSE_EDGE = "re_first_act"
 
-CREATE DIRECTED EDGE second_act(FROM action, TO ANS) WITH REVERSE_EDGE = "re_ second_act"
+CREATE DIRECTED EDGE second_act(FROM action, TO ANS) WITH REVERSE_EDGE = "re_second_act"
 
 ####语义关系:双object关系####
 
-CREATE DIRECTED EDGE first_obj(FROM object, TO ANS) WITH REVERSE_EDGE = "re_ first_obj"
+CREATE DIRECTED EDGE first_obj(FROM object, TO ANS) WITH REVERSE_EDGE = "re_first_obj"
 
-CREATE DIRECTED EDGE second_obj(FROM object, TO ANS) WITH REVERSE_EDGE = "re_ second_obj"
+CREATE DIRECTED EDGE second_obj(FROM object, TO ANS) WITH REVERSE_EDGE = "re_second_obj"
 
 ####提供的关系####
 
-CREATE DIRECTED EDGE Agent_Action(FROM object, TO action) WITH REVERSE_EDGE = "re_ Agent_Action"
+CREATE DIRECTED EDGE Agent_Action(FROM object, TO action) WITH REVERSE_EDGE = "re_Agent_Action"
 
-CREATE DIRECTED EDGE Argument_Attrib(FROM action, TO object) WITH REVERSE_EDGE = "re_ Argument_Attrib"
+CREATE DIRECTED EDGE Argument_Attrib(FROM action, TO object) WITH REVERSE_EDGE = "re_Argument_Attrib"
 
-CREATE DIRECTED EDGE Dative_Action(FROM action, TO object) WITH REVERSE_EDGE = "re_ Dative_Action"
+CREATE DIRECTED EDGE Dative_Action(FROM action, TO object) WITH REVERSE_EDGE = "re_Dative_Action"
 
-CREATE DIRECTED EDGE Field_Attrib(FROM action, TO object) WITH REVERSE_EDGE = "re_ Field_Attrib"
+CREATE DIRECTED EDGE Field_Attrib(FROM action, TO object) WITH REVERSE_EDGE = "re_Field_Attrib"
 
-CREATE DIRECTED EDGE Objective_Clause(FROM action, TO action) WITH REVERSE_EDGE = "re_ Objective_Clause"
+CREATE DIRECTED EDGE Objective_Clause(FROM action, TO action) WITH REVERSE_EDGE = "re_Objective_Clause"
 
-CREATE DIRECTED EDGE Patient_Action(FROM action, TO object) WITH REVERSE_EDGE = "re_ Patient_Action"
+CREATE DIRECTED EDGE Patient_Action(FROM action, TO object) WITH REVERSE_EDGE = "re_Patient_Action"
 
-CREATE DIRECTED EDGE Action_Locative(FROM action, TO object) WITH REVERSE_EDGE = "re_ Action_Locative"
+CREATE DIRECTED EDGE Action_Locative(FROM action, TO object) WITH REVERSE_EDGE = "re_Action_Locative"
 
 CREATE DIRECTED EDGE Action_Manner(FROM action, TO object) WITH REVERSE_EDGE = "re_Action_Manner"
 
-CREATE DIRECTED EDGE Action_Modify(FROM action, TO object) WITH REVERSE_EDGE = "re_ Action_Modify"
+CREATE DIRECTED EDGE Action_Modify(FROM action, TO object) WITH REVERSE_EDGE = "re_Action_Modify"
+
+CREATE DIRECTED EDGE Object_Complement(FROM object, TO action) WITH REVERSE_EDGE = "re_Object_Complement"
 
 
 ####创建图####
