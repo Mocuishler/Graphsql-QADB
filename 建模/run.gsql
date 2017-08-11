@@ -1,17 +1,1 @@
-run job load_Objective_Clause_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Objective_Clause_test.csv",separator=" ",EOL="\n"
-
-run job load_Action_Locative_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Action_Locative_test.csv",separator=" ",EOL="\n"
-
-run job load_Action_Manner_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Action_Manner_test.csv",separator=" ",EOL="\n"
-
-run job load_Action_Modify_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Action_Modify_test.csv",separator=" ",EOL="\n"
-
-run job load_Dative_Action_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Dative_Action_test.csv",separator=" ",EOL="\n"
-
-run job load_Field_Attrib_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Field_Attrib_test.csv",separator=" ",EOL="\n"
-
-run job load_Agent_Action_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Agent_Action_test.csv",separator=" ",EOL="\n"
-
-run job load_Argument_Attrib_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Argument_Attrib_test.csv",separator=" ",EOL="\n"
-
-run job load_Patient_Action_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Patient_Action_test.csv",separator=" ",EOL="\n"
+'''run job load_Objective_Clause_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Objective_Clause_test.csv",separator=" ",EOL="\n";run job load_Action_Locative_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Action_Locative_test.csv",separator=" ",EOL="\n";run job load_Action_Manner_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Action_Manner_test.csv",separator=" ",EOL="\n";run job load_Action_Modify_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Action_Modify_test.csv",separator=" ",EOL="\n";run job load_Dative_Action_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Dative_Action_test.csv",separator=" ",EOL="\n";run job load_Field_Attrib_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Field_Attrib_test.csv",separator=" ",EOL="\n";run job load_Agent_Action_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Agent_Action_test.csv",separator=" ",EOL="\n";run job load_Argument_Attrib_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Argument_Attrib_test.csv",separator=" ",EOL="\n";run job load_Patient_Action_test USING FILENAME = "/home/graphsql/cmb_knowledge_graph/file/Patient_Action_test.csv",separator=" ",EOL="\n"'''

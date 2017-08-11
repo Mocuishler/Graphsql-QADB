@@ -11,7 +11,7 @@ CREATE ONLINE_POST JOB load_Action_Manner_test FOR GRAPH c_graph{
 
 		TO EDGE passivity VALUES ($"obj",$"qa"),
 
-		TO EDGE Action_Manner VALUES ($"act",$"obj"),
+		TO EDGE Action_Manner VALUES ($"act",$"obj")
 
         USING QUOTE="double",USER_DEFINED_HEADER="Action_Manner_header";
 
