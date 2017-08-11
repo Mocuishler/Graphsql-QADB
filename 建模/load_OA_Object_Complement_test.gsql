@@ -1,0 +1,20 @@
+DROP JOB load_Object_Complement_test
+CREATE ONLINE_POST JOB load_Object_Complement_test FOR GRAPH c_graph{
+	DEFINE HEADER Object_Complement_header = "obj","act","rel","qa";
+	LOAD
+
+		TO VERTEX object VALUES ($"obj", $"obj"),
+		TO VERTEX action VALUES ($"act", $"act"),
+		TO VERTEX ANS VALUES ($"qa", $"qa"),
+
+		TO EDGE obj_to_answer VALUES ($"obj",$"qa"),
+		TO EDGE act_to_answer VALUES ($"act",$"qa"),
+
+		TO EDGE initiative VALUES ($"obj",$"qa"),
+
+		TO EDGE Object_Complement VALUES ($"obj",$"act")
+
+		USING QUOTE="double",USER_DEFINED_HEADER="Object_Complement_header";
+
+# RUN JOB load_Object_Complement_test USING FILENAME="XXX", SEPARATOR=" ", EOL="\n"
+}
