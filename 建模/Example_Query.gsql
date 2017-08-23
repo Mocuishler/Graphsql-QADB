@@ -1,0 +1,37 @@
+CREATE QUERY ex_query( string typ_a,vertex input_a,string typ_b,vertex input_b,rel) FOR GRAPH c_graph
+{
+  SumAccum<int>  @cnt = 0;
+  V_A={input_a};
+  T_A={typ_a};
+  V_B={input_b};
+  T_B={typ_b};
+  REL={rel};
+
+##
+
+  IF T_A == object THEN
+    L0 = SELECT tgt
+          FROM V_A-(obj_to_answer)->ANS:tgt
+          ACCUM tgt.@cnt += 1
+          ORDER BY tgt.@cnt DESC
+  ELSE
+    L0 = SELECT tgt
+          FROM V_A-(act_to_answer)->ANS:tgt
+          ACCUM tgt.@cnt += 1
+          ORDER BY tgt.@cnt DESC
+
+##
+
+IF T_B == object THEN
+  L0 = SELECT tgt
+        FROM V_B-(obj_to_answer)->ANS:tgt
+        ACCUM tgt.@cnt += 1
+        ORDER BY tgt.@cnt DESC
+ELSE
+  L0 = SELECT tgt
+        FROM V_B-(act_to_answer)->ANS:tgt
+        ACCUM tgt.@cnt += 1
+        ORDER BY tgt.@cnt DESC
+
+
+}
