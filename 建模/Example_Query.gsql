@@ -1,5 +1,5 @@
 drop query maroon1
-CREATE QUERY maroon1(set<vertex> input_vertexs,set<string> rel,int toplimit) for graph c_graph{
+CREATE QUERY maroon1(set<vertex> vertex,set<string> rel,int toplimit) for graph c_graph{
 
     SumAccum<int> @cnt = 0;
 	SetAccum<vertex> @@rset;
@@ -7,9 +7,9 @@ CREATE QUERY maroon1(set<vertex> input_vertexs,set<string> rel,int toplimit) for
 	toplimit = {toplimit}
 	STRING notice1 = "Improper Relationship"
 
-	while(i<relate.size()){
-		first_word = {input_vertexs[i]}
-	    second_word = {input_vertexs[i+1]}
+	while(i<rel.size()){
+		first_word = {vertex[i]}
+	    second_word = {vertex[i+1]}
         rela = {rel[i]}
         i += 1
 #缺省VERTEX-ANS直接关联#
