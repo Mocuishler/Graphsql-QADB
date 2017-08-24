@@ -44,7 +44,6 @@ CREATE DIRECTED EDGE second_obj(FROM object, TO ANS) WITH REVERSE_EDGE = "re_sec
 ####提供的关系####
 
 CREATE DIRECTED EDGE Agent_Action(FROM object, TO ANS)
-
 CREATE DIRECTED EDGE re_Agent_Action(FROM action, TO ANS)
 
 #
@@ -55,7 +54,6 @@ CREATE DIRECTED EDGE re_Argument_Attrib(FROM object, TO ANS)
 #
 
 CREATE DIRECTED EDGE Dative_Action(FROM action, TO ANS)
-
 CREATE DIRECTED EDGE re_Dative_Action(FROM object, TO ANS)
 
 #
@@ -66,7 +64,6 @@ CREATE DIRECTED EDGE re_Field_Attrib(FROM object, TO ANS)
 #
 
 CREATE DIRECTED EDGE Objective_Clause(FROM action, TO ANS)
-
 CREATE DIRECTED EDGE re_Objective_Clause(FROM action, TO ANS)
 
 #
@@ -77,7 +74,6 @@ CREATE DIRECTED EDGE re_Patient_Action(FROM object, TO ANS)
 #
 
 CREATE DIRECTED EDGE Action_Locative(FROM action, TO ANS)
-
 CREATE DIRECTED EDGE re_Action_Locative(FROM object, TO ANS)
 
 #
@@ -88,7 +84,6 @@ CREATE DIRECTED EDGE re_Action_Manner(FROM object, TO ANS)
 #
 
 CREATE DIRECTED EDGE Action_Modify(FROM action, TO ANS)
-
 CREATE DIRECTED EDGE re_Action_Modify(FROM object, TO ANS)
 
 #

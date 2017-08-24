@@ -1,37 +1,127 @@
-CREATE QUERY ex_query( string typ_a,vertex input_a,string typ_b,vertex input_b,rel) FOR GRAPH c_graph
-{
-  SumAccum<int>  @cnt = 0;
-  V_A={input_a};
-  T_A={typ_a};
-  V_B={input_b};
-  T_B={typ_b};
-  REL={rel};
+drop query maroon1
+CREATE QUERY maroon1(set<vertex> input_vertexs,set<string> rel,int toplimit) for graph c_graph{
 
-##
+    SumAccum<int> @cnt = 0;
+	SetAccum<vertex> @@rset;
+	int i=0;
+	toplimit = {toplimit}
+	STRING notice1 = "Improper Relationship"
 
-  IF T_A == object THEN
-    L0 = SELECT tgt
-          FROM V_A-(obj_to_answer)->ANS:tgt
-          ACCUM tgt.@cnt += 1
-          ORDER BY tgt.@cnt DESC
-  ELSE
-    L0 = SELECT tgt
-          FROM V_A-(act_to_answer)->ANS:tgt
-          ACCUM tgt.@cnt += 1
-          ORDER BY tgt.@cnt DESC
+	while(i<relate.size()){
+		first_word = {input_vertexs[i]}
+	    second_word = {input_vertexs[i+1]}
+        rela = {rel[i]}
+        i += 1
+#缺省VERTEX-ANS直接关联#
+        CASE rela
+            WHEN "Agent_Action" THEN {
+                vret = SELECT tgt
+					FROM first_word-(Agent_Action:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
 
-##
+				vret = SELECT tgt
+					FROM second_word-(re_Agent_Action:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
 
-IF T_B == object THEN
-  L0 = SELECT tgt
-        FROM V_B-(obj_to_answer)->ANS:tgt
-        ACCUM tgt.@cnt += 1
-        ORDER BY tgt.@cnt DESC
-ELSE
-  L0 = SELECT tgt
-        FROM V_B-(act_to_answer)->ANS:tgt
-        ACCUM tgt.@cnt += 1
-        ORDER BY tgt.@cnt DESC
+					}
 
+            WHEN "Argument_Attrib" THEN {
+                vret = SELECT tgt
+					FROM first_word-(Argument_Attrib:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
 
+				vret = SELECT tgt
+					FROM second_word-(re_Argument_Attrib:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+					}
+            WHEN "Dative_Action" THEN {
+                vret = SELECT tgt
+					FROM first_word-(Dative_Action:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+				vret = SELECT tgt
+					FROM second_word-(re_Dative_Action:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+					}
+            WHEN "Field_Attrib" THEN {
+                vret = SELECT tgt
+					FROM first_word-(Field_Attrib:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+				vret = SELECT tgt
+					FROM second_word-(re_Field_Attrib:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+					}
+            WHEN "Objective_Clause" THEN {
+                vret = SELECT tgt
+					FROM first_word-(Objective_Clause:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+				vret = SELECT tgt
+					FROM second_word-(re_Objective_Clause:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+					}
+            WHEN "Patient_Action" THEN {
+                vret = SELECT tgt
+					FROM first_word-(Patient_Action:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+				vret = SELECT tgt
+					FROM second_word-(re_Patient_Action:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+					}
+            WHEN "Action_Locative" THEN {
+                vret = SELECT tgt
+					FROM first_word-(Action_Locative:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+				vret = SELECT tgt
+					FROM second_word-(re_Action_Locative:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+					}
+            WHEN "Action_Manner" THEN {
+                vret = SELECT tgt
+					FROM first_word-(Action_Manner:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+				vret = SELECT tgt
+					FROM second_word-(re_Action_Manner:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+					}
+            WHEN "Action_Modify" THEN {
+                vret = SELECT tgt
+					FROM first_word-(Action_Modify:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+				vret = SELECT tgt
+					FROM second_word-(re_Action_Modify:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+					}
+            WHEN "Object_Complement" THEN {
+                vret = SELECT tgt
+					FROM first_word-(Object_Complement:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+				vret = SELECT tgt
+					FROM second_word-(re_Object_Complement:e)->:tgt
+					ACCUM tgt.@cnt += 1, @@rset += tgt;
+
+					}
+            ELSE PRINT notice1
+            END
+
+	}
+	vret = @@rset;
+	vret = SELECT srt
+			from vret:src
+			ORDER BY src.@cnt DESC limit toplimit;
 }
+install query maroon1

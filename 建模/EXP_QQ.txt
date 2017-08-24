@@ -30,7 +30,7 @@ CREATE QUERY query2(set<vertex> input_vertexs,set<string> relate,int limitk) for
 		......
 	}
 	vret = @@rset;
-	vret = SELECT vret
+	vret = SELECT srt
 			from vret:src
 			ORDER BY src.@cnt DESC limit limitk;
 }
