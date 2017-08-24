@@ -43,26 +43,62 @@ CREATE DIRECTED EDGE second_obj(FROM object, TO ANS) WITH REVERSE_EDGE = "re_sec
 
 ####提供的关系####
 
-CREATE DIRECTED EDGE Agent_Action(FROM object, TO action) WITH REVERSE_EDGE = "re_Agent_Action"
+CREATE DIRECTED EDGE Agent_Action(FROM object, TO ANS)
 
-CREATE DIRECTED EDGE Argument_Attrib(FROM action, TO object) WITH REVERSE_EDGE = "re_Argument_Attrib"
+CREATE DIRECTED EDGE re_Agent_Action(FROM action, TO ANS)
 
-CREATE DIRECTED EDGE Dative_Action(FROM action, TO object) WITH REVERSE_EDGE = "re_Dative_Action"
+#
 
-CREATE DIRECTED EDGE Field_Attrib(FROM action, TO object) WITH REVERSE_EDGE = "re_Field_Attrib"
+CREATE DIRECTED EDGE Argument_Attrib(FROM object, TO ANS)
+CREATE DIRECTED EDGE re_Argument_Attrib(FROM object, TO ANS)
 
-CREATE DIRECTED EDGE Objective_Clause(FROM action, TO action) WITH REVERSE_EDGE = "re_Objective_Clause"
+#
 
-CREATE DIRECTED EDGE Patient_Action(FROM action, TO object) WITH REVERSE_EDGE = "re_Patient_Action"
+CREATE DIRECTED EDGE Dative_Action(FROM action, TO ANS)
 
-CREATE DIRECTED EDGE Action_Locative(FROM action, TO object) WITH REVERSE_EDGE = "re_Action_Locative"
+CREATE DIRECTED EDGE re_Dative_Action(FROM object, TO ANS)
 
-CREATE DIRECTED EDGE Action_Manner(FROM action, TO object) WITH REVERSE_EDGE = "re_Action_Manner"
+#
 
-CREATE DIRECTED EDGE Action_Modify(FROM action, TO object) WITH REVERSE_EDGE = "re_Action_Modify"
+CREATE DIRECTED EDGE Field_Attrib(FROM action, TO ANS)
+CREATE DIRECTED EDGE re_Field_Attrib(FROM object, TO ANS)
 
-CREATE DIRECTED EDGE Object_Complement(FROM object, TO action) WITH REVERSE_EDGE = "re_Object_Complement"
+#
+
+CREATE DIRECTED EDGE Objective_Clause(FROM action, TO ANS)
+
+CREATE DIRECTED EDGE re_Objective_Clause(FROM action, TO ANS)
+
+#
+
+CREATE DIRECTED EDGE Patient_Action(FROM action, TO ANS)
+CREATE DIRECTED EDGE re_Patient_Action(FROM object, TO ANS)
+
+#
+
+CREATE DIRECTED EDGE Action_Locative(FROM action, TO ANS)
+
+CREATE DIRECTED EDGE re_Action_Locative(FROM object, TO ANS)
+
+#
+
+CREATE DIRECTED EDGE Action_Manner(FROM action, TO ANS)
+CREATE DIRECTED EDGE re_Action_Manner(FROM object, TO ANS)
+
+#
+
+CREATE DIRECTED EDGE Action_Modify(FROM action, TO ANS)
+
+CREATE DIRECTED EDGE re_Action_Modify(FROM object, TO ANS)
+
+#
+
+CREATE DIRECTED EDGE Object_Complement(FROM object, TO ANS)
+CREATE DIRECTED EDGE re_Object_Complement(FROM action, TO ANS)
+
+#
 
 
 ####创建图####
+
 CREATE GRAPH c_graph(*)

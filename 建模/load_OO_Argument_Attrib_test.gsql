@@ -9,11 +9,9 @@ CREATE ONLINE_POST JOB load_Argument_Attrib_test FOR GRAPH c_graph{
 
 		TO EDGE obj_to_answer VALUES ($"obj2",$"qa"),
 		TO EDGE obj_to_answer VALUES ($"obj1",$"qa"),
-		
-		TO EDGE first_obj VALUES ($"obj1",$"qa"),
-		TO EDGE second_obj VALUES ($"obj2",$"qa"),
 
-		TO EDGE Argument_Attrib VALUES ($"obj1",$"obj2")
+		TO EDGE Argument_Attrib VALUES ($"obj1",$"qa"),
+		TO EDGE re_Argument_Attrib VALUES ($"obj2",$"qa")
 
         USING QUOTE="double",USER_DEFINED_HEADER="Argument_Attrib_header";
 

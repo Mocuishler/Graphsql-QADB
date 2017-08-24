@@ -10,9 +10,8 @@ CREATE ONLINE_POST JOB load_Object_Complement_test FOR GRAPH c_graph{
 		TO EDGE obj_to_answer VALUES ($"obj",$"qa"),
 		TO EDGE act_to_answer VALUES ($"act",$"qa"),
 
-		TO EDGE initiative VALUES ($"obj",$"qa"),
-
-		TO EDGE Object_Complement VALUES ($"obj",$"act")
+		TO EDGE Object_Complement VALUES ($"obj",$"qa"),
+		TO EDGE re_Object_Complement VALUES ($"act",$"qa")
 
 		USING QUOTE="double",USER_DEFINED_HEADER="Object_Complement_header";
 

@@ -10,9 +10,8 @@ CREATE ONLINE_POST JOB load_Field_Attrib_test FOR GRAPH c_graph{
 		TO EDGE obj_to_answer VALUES ($"obj",$"qa"),
 		TO EDGE act_to_answer VALUES ($"act",$"qa"),
 
-		TO EDGE passivity VALUES ($"obj",$"qa"),
-
-		TO EDGE Field_Attrib VALUES ($"act",$"obj")
+		TO EDGE Field_Attrib VALUES ($"act",$"qa"),
+		TO EDGE re_Field_Attrib VALUES ($"obj",$"qa")
 
 		USING QUOTE="double",USER_DEFINED_HEADER="Field_Attrib_header";
 

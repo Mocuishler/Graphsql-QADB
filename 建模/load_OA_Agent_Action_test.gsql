@@ -10,9 +10,8 @@ CREATE ONLINE_POST JOB load_Agent_Action_test FOR GRAPH c_graph{
 		TO EDGE obj_to_answer VALUES ($"obj",$"qa"),
 		TO EDGE act_to_answer VALUES ($"act",$"qa"),
 
-		TO EDGE initiative VALUES ($"obj",$"qa"),
-
-		TO EDGE Agent_Action VALUES ($"obj",$"act")
+		TO EDGE Agent_Action VALUES ($"obj",$"qa"),
+		TO EDGE re_Agent_Action VALUES ($"act",$"qa")
 
 		USING QUOTE="double",USER_DEFINED_HEADER="Agent_Action_header";
 

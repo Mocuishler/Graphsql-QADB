@@ -11,9 +11,8 @@ CREATE ONLINE_POST JOB load_Patient_Action_test FOR GRAPH c_graph{
 		TO EDGE obj_to_answer VALUES ($"obj",$"qa"),
 		TO EDGE act_to_answer VALUES ($"act",$"qa"),
 
-		TO EDGE passivity VALUES ($"obj",$"qa"),
-
-		TO EDGE Patient_Action VALUES ($"act",$"obj")
+		TO EDGE Patient_Action VALUES ($"act",$"qa"),
+		TO EDGE re_Patient_Action VALUES ($"obj",$"obj")
 
         USING QUOTE="double",USER_DEFINED_HEADER="Patient_Action_header";
 

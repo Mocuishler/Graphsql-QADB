@@ -10,9 +10,8 @@ CREATE ONLINE_POST JOB load_Dative_Action_test FOR GRAPH c_graph{
 		TO EDGE obj_to_answer VALUES ($"obj",$"qa"),
 		TO EDGE act_to_answer VALUES ($"act",$"qa"),
 
-		TO EDGE passivity VALUES ($"obj",$"qa"),
-
-		TO EDGE Dative_Action VALUES ($"act",$"obj")
+		TO EDGE Dative_Action VALUES ($"act",$"qa"),
+		TO EDGE re_Dative_Action VALUES ($"obj",$"qa")
 
 		USING QUOTE="double",USER_DEFINED_HEADER="Dative_Action_header";
 

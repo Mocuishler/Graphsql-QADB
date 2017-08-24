@@ -10,10 +10,8 @@ CREATE ONLINE_POST JOB load_Objective_Clause_test FOR GRAPH c_graph{
 		TO EDGE act_to_answer VALUES ($"act1",$"qa"),
 		TO EDGE act_to_answer VALUES ($"act2",$"qa"),
 
-		TO EDGE first_act VALUES ($"act1",$"qa"),
-		TO EDGE second_act VALUES ($"act2",$"qa"),
-
-		TO EDGE Objective_Clause VALUES ($"act1",$"act2")
+		TO EDGE Objective_Clause VALUES ($"act1",$"qa"),
+		TO EDGE re_Objective_Clause VALUES ($"act2",$"qa")
 
         USING QUOTE="double",USER_DEFINED_HEADER="Objective_Clause_header";
 

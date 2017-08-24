@@ -10,9 +10,8 @@ CREATE ONLINE_POST JOB load_Action_Locative_test FOR GRAPH c_graph{
 		TO EDGE obj_to_answer VALUES ($"obj",$"qa"),
 		TO EDGE act_to_answer VALUES ($"act",$"qa"),
 
-		TO EDGE passivity VALUES ($"obj",$"qa"),
-
-		TO EDGE Action_Locative VALUES ($"act",$"obj"),
+		TO EDGE Action_Locative VALUES ($"act",$"qa"),
+		TO EDGE re_Action_Locative VALUES ($"obj",$"qa")
 
 		USING QUOTE="double",USER_DEFINED_HEADER="Action_Locative_header";
 
