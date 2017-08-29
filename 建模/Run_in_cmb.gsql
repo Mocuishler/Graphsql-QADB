@@ -1,19 +1,19 @@
-run job load_Objective_Clause_test USING FILENAME = "/home/graphsql/entity_relationship/Objective_Clause,csv",separator=" ",EOL="\n"
+run job load_Objective_Clause_test USING FILENAME = "/home/gadmsom/entity_relationship/Objective_Clause.csv",separator=" ",EOL="\n"
 
-run job load_Action_Locative_test USING FILENAME = "/home/graphsql/entity_relationship/Action_Locative,csv",separator=" ",EOL="\n"
+run job load_Action_Locative_test USING FILENAME = "/home/gadmsom/entity_relationship/Action_Locative.csv",separator=" ",EOL="\n"
 
-run job load_Action_Manner_test USING FILENAME = "/home/graphsql/entity_relationship/Action_Manner,csv",separator=" ",EOL="\n"
+run job load_Action_Manner_test USING FILENAME = "/home/gadmsom/entity_relationship/Action_Manner.csv",separator=" ",EOL="\n"
 
-run job load_Action_Modify_test USING FILENAME = "/home/graphsql/entity_relationship/Action_Modify,csv",separator=" ",EOL="\n"
+run job load_Action_Modify_test USING FILENAME = "/home/gadmsom/entity_relationship/Action_Modify.csv",separator=" ",EOL="\n"
 
-run job load_Dative_Action_test USING FILENAME = "/home/graphsql/entity_relationship/Dative_Action,csv",separator=" ",EOL="\n"
+run job load_Dative_Action_test USING FILENAME = "/home/gadmsom/entity_relationship/Dative_Action.csv",separator=" ",EOL="\n"
 
-run job load_Field_Attrib_test USING FILENAME = "/home/graphsql/entity_relationship/Field_Attrib,csv",separator=" ",EOL="\n"
+run job load_Field_Attrib_test USING FILENAME = "/home/gadmsom/entity_relationship/Field_Attrib.csv",separator=" ",EOL="\n"
 
-run job load_Agent_Action_test USING FILENAME = "/home/graphsql/entity_relationship/Agent_Action,csv",separator=" ",EOL="\n"
+run job load_Agent_Action_test USING FILENAME = "/home/gadmsom/entity_relationship/Agent_Action.csv",separator=" ",EOL="\n"
 
-run job load_Argument_Attrib_test USING FILENAME = "/home/graphsql/entity_relationship/Argument_Attrib,csv",separator=" ",EOL="\n"
+run job load_Argument_Attrib_test USING FILENAME = "/home/gadmsom/entity_relationship/Argument_Attrib.csv",separator=" ",EOL="\n"
 
-run job load_Patient_Action_test USING FILENAME = "/home/graphsql/entity_relationship/Patient_Action,csv",separator=" ",EOL="\n"
+run job load_Patient_Action_test USING FILENAME = "/home/gadmsom/entity_relationship/Patient_Action.csv",separator=" ",EOL="\n"
 
-run job load_Object_Complement_test USING FILENAME = "/home/graphsql/entity_relationship/Object_Complement,csv",separator=" ",EOL="\n"
+run job load_Object_Complement_test USING FILENAME = "/home/gadmsom/entity_relationship/Object_Complement.csv",separator=" ",EOL="\n"

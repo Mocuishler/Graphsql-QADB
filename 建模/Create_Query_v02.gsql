@@ -1,0 +1,111 @@
+drop query maroon2
+CREATE QUERY maroon2(vertex k1,vertex k2,string rel) for graph c_graph{
+
+    ListAccum<vertex> @@templist;
+
+    first_word = {k1};
+
+    second_word = {k2};
+
+    rela = {rel};
+
+    CASE rela
+        WHEN "Agent_Action" THEN
+            vret = SELECT tgt FROM first_word-(Agent_Action:e)->:tgt ACCUM @@templist +=tgt,
+            vret = SELECT tgt FROM second_word-(re_Agent_Action:e)->:tgt ACCUM @@templist +=tgt END,
+
+        WHEN "Argument_Attrib" THEN
+            vret = SELECT tgt
+                FROM first_word-(Argument_Attrib:e)->:tgt
+                ACCUM @@templist +=tgt
+
+            vret = SELECT tgt
+                FROM second_word-(re_Argument_Attrib:e)->:tgt
+                ACCUM @@templist +=tgt END,
+
+                
+        WHEN "Dative_Action" THEN 
+            vret = SELECT tgt
+                FROM first_word-(Dative_Action:e)->:tgt
+                ACCUM @@templist +=tgt
+
+            vret = SELECT tgt
+                FROM second_word-(re_Dative_Action:e)->:tgt
+                ACCUM @@templist +=tgt END,
+
+
+        WHEN "Field_Attrib" THEN 
+            vret = SELECT tgt
+                FROM first_word-(Field_Attrib:e)->:tgt
+                ACCUM @@templist +=tgt
+
+            vret = SELECT tgt
+                FROM second_word-(re_Field_Attrib:e)->:tgt
+                ACCUM @@templist +=tgt END,
+
+
+        WHEN "Objective_Clause" THEN 
+            vret = SELECT tgt
+                FROM first_word-(Objective_Clause:e)->:tgt
+                ACCUM @@templist +=tgt
+
+            vret = SELECT tgt
+                FROM second_word-(re_Objective_Clause:e)->:tgt
+                ACCUM @@templist +=tgt END,
+
+
+        WHEN "Patient_Action" THEN 
+            vret = SELECT tgt
+                FROM first_word-(Patient_Action:e)->:tgt
+                ACCUM @@templist +=tgt
+
+            vret = SELECT tgt
+                FROM second_word-(re_Patient_Action:e)->:tgt
+                ACCUM @@templist +=tgt END,
+
+
+        WHEN "Action_Locative" THEN 
+            vret = SELECT tgt
+                FROM first_word-(Action_Locative:e)->:tgt
+                ACCUM @@templist +=tgt
+
+            vret = SELECT tgt
+                FROM second_word-(re_Action_Locative:e)->:tgt
+                ACCUM @@templist +=tgt END,
+
+
+        WHEN "Action_Manner" THEN 
+            vret = SELECT tgt
+                FROM first_word-(Action_Manner:e)->:tgt
+                ACCUM @@templist +=tgt
+
+            vret = SELECT tgt
+                FROM second_word-(re_Action_Manner:e)->:tgt
+                ACCUM @@templist +=tgt END,
+
+
+        WHEN "Action_Modify" THEN 
+            vret = SELECT tgt
+                FROM first_word-(Action_Modify:e)->:tgt
+                ACCUM @@templist +=tgt
+
+            vret = SELECT tgt
+                FROM second_word-(re_Action_Modify:e)->:tgt
+                ACCUM @@templist +=tgt END,
+
+
+        WHEN "Object_Complement" THEN 
+            vret = SELECT tgt
+                FROM first_word-(Object_Complement:e)->:tgt
+                ACCUM @@templist +=tgt
+
+            vret = SELECT tgt
+                FROM second_word-(re_Object_Complement:e)->:tgt
+                ACCUM @@templist +=tgt END;
+
+
+        END
+}
+
+
+install query maroon2

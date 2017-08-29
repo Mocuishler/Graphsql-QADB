@@ -1,18 +1,17 @@
 drop query maroon1
-CREATE QUERY maroon1(set<vertex> vertex,set<string> rel,int toplimit) for graph c_graph{
+CREATE QUERY maroon1(set<vertex>vertexs,set<string> rel,int toplimit) for graph c_graph{
 
     SumAccum<int> @cnt = 0;
 	SetAccum<vertex> @@rset;
 	int i=0;
-	toplimit = {toplimit}
-	STRING notice1 = "Improper Relationship"
+	toplimit = {toplimit};
 
-	while(i<rel.size()){
-		first_word = {vertex[i]}
-	    second_word = {vertex[i+1]}
-        rela = {rel[i]}
-        i += 1
-#缺省VERTEX-ANS直接关联#
+	while(i<rel.size()) DO {
+		first_word = {vertexs[i]};
+	    second_word = {vertexs[i+1]};
+        rela = {rel[i]};
+        i += 1;
+
         CASE rela
             WHEN "Agent_Action" THEN {
                 vret = SELECT tgt
@@ -115,10 +114,11 @@ CREATE QUERY maroon1(set<vertex> vertex,set<string> rel,int toplimit) for graph 
 					ACCUM tgt.@cnt += 1, @@rset += tgt;
 
 					}
-            ELSE PRINT notice1
+
             END
 
 	}
+	END
 	vret = @@rset;
 	vret = SELECT srt
 			from vret:src
